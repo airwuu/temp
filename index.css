@@ -1186,24 +1186,93 @@ section {
 
   .about-card {
     padding: 32px 24px;
+    box-shadow: 6px 6px 0 var(--accent-3), 12px 12px 0 var(--accent-1) !important;
+    transform: none !important;
+    max-width: 100%;
+    margin-right: 16px; /* Align with grid-based cards */
+    width: auto;
   }
 
   .prizes-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+    padding-right: 16px; /* Space for shadows */
+  }
+
+  .prize-card {
+    box-shadow: 6px 6px 0 var(--accent-1), 12px 12px 0 var(--accent-2) !important;
+    transform: none !important;
+    max-width: 100%;
   }
 
   .prize-card:nth-child(1),
   .prize-card:nth-child(3) {
-    transform: rotate(0deg);
+    transform: none !important;
   }
 
   .prize-card:nth-child(2) {
-    transform: translateY(0) rotate(0deg);
+    transform: none !important;
+  }
+
+  .track-card {
+    padding: 48px 24px;
+    box-shadow: 6px 6px 0 var(--accent-3), 12px 12px 0 var(--accent-5) !important;
+    transform: none !important;
+    max-width: 100%;
+    margin-right: 16px; /* Align with grid-based cards */
+    width: auto;
+    border-width: 4px; /* Slightly thinner dashed border for mobile */
   }
 
   .register-card {
     padding: 48px 24px;
+    box-shadow: 6px 6px 0 var(--accent-2), 12px 12px 0 var(--accent-3) !important;
+    transform: none !important;
+    max-width: 100%;
+    margin-right: 16px; /* Align with grid-based cards */
+    width: auto;
+  }
+
+  /* --- ABOUT SECTION MOBILE FIXES --- */
+  .schedule-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-right: 16px; /* Space for shadows */
+  }
+
+  .schedule-day-card {
+    flex-direction: column;
+    transform: none !important;
+    box-shadow: 6px 6px 0 var(--accent-3), 12px 12px 0 var(--accent-1) !important;
+  }
+
+  .schedule-day-card:hover {
+    transform: scale(1.02) !important;
+    box-shadow: 8px 8px 0 var(--accent-2), 16px 16px 0 var(--accent-4) !important;
+  }
+
+  .schedule-day-sidebar {
+    flex-direction: row;
+    padding: 24px;
+    justify-content: flex-start;
+    gap: 16px;
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.1);
+  }
+
+  .schedule-day-divider {
+    display: none;
+  }
+
+  .day-number {
+    font-size: 48px;
+  }
+
+  .schedule-day-content {
+    padding: 24px;
+  }
+
+  .schedule-time {
+    font-size: 32px;
   }
 
   .footer-content {
