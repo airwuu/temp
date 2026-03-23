@@ -1189,14 +1189,14 @@ section {
     box-shadow: 6px 6px 0 var(--accent-3), 12px 12px 0 var(--accent-1) !important;
     transform: none !important;
     max-width: 100%;
-    margin-right: 16px; /* Align with grid-based cards */
+    margin: 0 8px; /* Symmetric offset for centering */
     width: auto;
   }
 
   .prizes-grid {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding-right: 16px; /* Space for shadows */
+    padding: 0 8px; /* Symmetric offset for centering */
   }
 
   .prize-card {
@@ -1219,7 +1219,7 @@ section {
     box-shadow: 6px 6px 0 var(--accent-3), 12px 12px 0 var(--accent-5) !important;
     transform: none !important;
     max-width: 100%;
-    margin-right: 16px; /* Align with grid-based cards */
+    margin: 0 8px; /* Symmetric offset for centering */
     width: auto;
     border-width: 4px; /* Slightly thinner dashed border for mobile */
   }
@@ -1229,7 +1229,7 @@ section {
     box-shadow: 6px 6px 0 var(--accent-2), 12px 12px 0 var(--accent-3) !important;
     transform: none !important;
     max-width: 100%;
-    margin-right: 16px; /* Align with grid-based cards */
+    margin: 0 8px; /* Symmetric offset for centering */
     width: auto;
   }
 
@@ -1237,7 +1237,7 @@ section {
   .schedule-grid {
     grid-template-columns: 1fr;
     gap: 24px;
-    padding-right: 16px; /* Space for shadows */
+    padding: 0 8px; /* Symmetric offset for centering */
   }
 
   .schedule-day-card {
