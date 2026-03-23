@@ -1045,6 +1045,13 @@ section {
   z-index: 2;
 }
 
+.register-card .btn-primary {
+  font-size: 18px;
+  padding: 18px 48px;
+  position: relative;
+  z-index: 2;
+}
+
 /* --- FOOTER --- */
 .footer {
   padding: 64px 24px 32px;
@@ -1231,6 +1238,13 @@ section {
     max-width: 100%;
     margin: 0 8px; /* Symmetric offset for centering */
     width: auto;
+  }
+
+  .register-card .btn-primary {
+    font-size: 16px;
+    padding: 14px 28px;
+    width: calc(100% - 16px);
+    max-width: 300px;
   }
 
   /* --- ABOUT SECTION MOBILE FIXES --- */
