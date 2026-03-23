@@ -357,47 +357,70 @@ section {
 }
 
 /* --- Buttons --- */
+/* --- Buttons --- */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
   font-family: var(--font-heading);
   font-weight: 900;
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 3px;
   color: var(--fg);
-  background: linear-gradient(135deg, var(--accent-1), var(--accent-5), var(--accent-2));
-  background-size: 200% 200%;
+  /* Premium multi-layer background: shimmer + base gradient */
+  background: 
+    linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%) no-repeat -200% 0 / 200% 100%,
+    linear-gradient(135deg, var(--accent-1), var(--accent-5), var(--accent-2));
+  background-size: 200% 100%, 200% 200%;
   border: 4px solid var(--accent-3);
   border-radius: var(--radius-button);
-  padding: 14px 40px;
+  padding: 16px 44px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  z-index: 1;
+  transition: 
+    transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    background-position 0.8s ease;
   box-shadow:
-    0 0 20px rgba(46, 134, 222, 0.5),
-    0 0 40px rgba(0, 210, 255, 0.3),
-    6px 6px 0 var(--accent-3),
-    12px 12px 0 var(--accent-1);
+    0 0 20px rgba(46, 134, 222, 0.4),
+    6px 6px 0 var(--accent-4),
+    12px 12px 0 var(--bg);
   text-decoration: none;
 }
 
+/* Bloom effect */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, var(--accent-2) 0%, transparent 70%);
+  opacity: 0;
+  z-index: -1;
+  filter: blur(20px);
+  transition: opacity 0.5s ease;
+}
+
 .btn-primary:hover {
-  transform: scale(1.1) rotate(-1deg);
+  transform: scale(1.03) translateY(-4px);
+  background-position: 200% 0, 100% 50%;
   box-shadow:
-    0 0 30px rgba(46, 134, 222, 0.7),
-    0 0 60px rgba(0, 210, 255, 0.5),
-    8px 8px 0 var(--accent-3),
-    16px 16px 0 var(--accent-1);
-  background-position: 100% 50%;
+    0 0 40px rgba(0, 210, 255, 0.6),
+    8px 8px 0 var(--accent-4),
+    16px 16px 0 var(--bg);
+}
+
+.btn-primary:hover::before {
+  opacity: 0.4;
 }
 
 .btn-primary:active {
-  transform: scale(0.95);
+  transform: scale(0.97) translateY(0);
   box-shadow:
     0 0 10px rgba(46, 134, 222, 0.4),
-    2px 2px 0 var(--accent-3);
+    2px 2px 0 var(--accent-4);
 }
 
 .btn-primary:focus-visible {
@@ -405,31 +428,60 @@ section {
   outline-offset: 6px;
 }
 
+/* Navbar specific override for Register button */
+.navbar .btn-primary {
+  box-shadow: 0 0 15px rgba(46, 134, 222, 0.3);
+  border-width: 2px;
+}
+
+.navbar .btn-primary:hover {
+  box-shadow: 0 0 25px rgba(0, 210, 255, 0.5);
+  transform: scale(1.05); /* Simpler scale for nav */
+}
+
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   font-family: var(--font-heading);
-  font-weight: 900;
+  font-weight: 800;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 3px;
   color: var(--accent-2);
-  background: transparent;
-  border: 4px dashed var(--accent-2);
+  background: rgba(0, 210, 255, 0.05);
+  border: 3px dashed var(--accent-2);
   border-radius: var(--radius-button);
   padding: 12px 32px;
   cursor: pointer;
-  transition: all 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   text-decoration: none;
 }
 
+.btn-secondary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
 .btn-secondary:hover {
-  background: var(--accent-2);
-  color: var(--bg);
+  background: rgba(0, 210, 255, 0.15);
   border-style: solid;
-  transform: scale(1.05);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+}
+
+.btn-secondary:hover::after {
+  left: 100%;
 }
 
 /* --- HERO SECTION --- */
@@ -1148,46 +1200,6 @@ section {
 
   .prize-card:nth-child(2) {
     transform: translateY(0) rotate(0deg);
-  }
-
-  /* Schedule Day Cards Responsive */
-  .schedule-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-top: 32px;
-  }
-
-  .schedule-day-card {
-    flex-direction: column;
-  }
-
-  .schedule-day-card:nth-child(1),
-  .schedule-day-card:nth-child(2) {
-    transform: rotate(0deg);
-  }
-
-  .schedule-day-sidebar {
-    flex-direction: row;
-    padding: 20px;
-    min-width: unset;
-    gap: 12px;
-    border-bottom: 2px dashed rgba(0, 210, 255, 0.2);
-  }
-
-  .day-number {
-    font-size: 48px;
-  }
-
-  .schedule-day-divider {
-    display: none;
-  }
-
-  .schedule-day-content {
-    padding: 24px;
-  }
-
-  .schedule-time {
-    font-size: 32px;
   }
 
   .register-card {
