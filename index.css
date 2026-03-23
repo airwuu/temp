@@ -275,6 +275,11 @@ section {
   will-change: transform;
 }
 
+/* Tint emojis white */
+.emoji {
+  filter: grayscale(0.8) brightness(2);
+}
+
 /* --- NAVBAR --- */
 .navbar {
   position: fixed;
@@ -544,7 +549,7 @@ section {
 .section-heading {
   font-size: clamp(48px, 8vw, 80px);
   margin-bottom: 32px;
-  color: rgba(255, 255, 255, 0.85);
+
 }
 
 .about-text {
